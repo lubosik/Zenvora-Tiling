@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
 import { Stack } from '@/components/layout/Stack'
@@ -137,19 +138,19 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 personalized assistance.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
+                <Link
                   href="/resources"
                   className="text-[var(--accent)] hover:text-[var(--accentHover)] font-medium text-sm"
                 >
                   View All Resources →
-                </a>
+                </Link>
                 <span className="text-neutral-400">•</span>
-                <a
+                <Link
                   href="/request-pricing"
                   className="text-[var(--accent)] hover:text-[var(--accentHover)] font-medium text-sm"
                 >
                   Request Pricing →
-                </a>
+                </Link>
               </div>
             </div>
           </Stack>

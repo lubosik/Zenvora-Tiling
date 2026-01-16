@@ -9,7 +9,7 @@ export const requestPricingSchema = z.object({
   tileType: z.enum(['floor', 'wall', 'both']).optional(),
   requiredFinishes: z.string().optional(),
   email: z.string().email('Valid email is required').max(200),
-  whatsapp: z.string().optional().max(50),
+  whatsapp: z.string().max(50).optional(),
   boqFile: z.string().optional(), // Base64 or URL
   drawingFile: z.string().optional(), // Base64 or URL
   honeypot: z.string().max(0, 'Spam detected'), // Honeypot field

@@ -8,7 +8,7 @@ import { productCategories } from '@/content/products/categories'
 
 export function WhatWeDeliver() {
   return (
-    <Section spacing="lg" background="default">
+    <Section spacing="lg" variant="dark">
       <Container>
         <Stack spacing="lg" align="center">
           <div className="text-center max-w-3xl">

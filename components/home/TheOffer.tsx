@@ -45,7 +45,7 @@ const timelineSteps = [
 
 export function TheOffer() {
   return (
-    <Section spacing="lg" background="neutral">
+    <Section spacing="lg" variant="light">
       <Container>
         <Stack spacing="lg" align="center">
           <div className="text-center max-w-3xl">

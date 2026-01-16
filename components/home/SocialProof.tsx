@@ -10,7 +10,7 @@ import { internalLinks } from '@/lib/internal-links'
 
 export function SocialProof() {
   return (
-    <Section spacing="lg" background="default">
+    <Section spacing="lg" variant="dark">
       <Container>
         <Stack spacing="xl" align="center">
           {/* Proof Snippets */}

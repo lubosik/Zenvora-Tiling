@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
 import { Stack } from '@/components/layout/Stack'
@@ -62,12 +63,12 @@ export default function FAQsPage() {
                 Can&apos;t find what you&apos;re looking for? Submit your BOQ or contact us for
                 personalized assistance with your commercial tile project.
               </p>
-              <a
+              <Link
                 href="/request-pricing"
                 className="inline-block px-6 py-3 bg-[var(--accent)] text-[var(--bg)] rounded-lg font-medium hover:bg-[var(--accentHover)] transition-colors"
               >
                 Request Pricing / Send BOQ
-              </a>
+              </Link>
             </div>
           </Stack>
         </Container>

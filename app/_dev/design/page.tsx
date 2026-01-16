@@ -9,7 +9,7 @@ import { Card } from '@/components/ui/Card'
 export default function DesignSystemPage() {
   return (
     <div className="min-h-screen bg-neutral-50">
-      <Section spacing="lg" background="neutral">
+      <Section spacing="lg" variant="light">
         <Container>
           <Stack spacing="xl">
             <div>
@@ -41,19 +41,19 @@ export default function DesignSystemPage() {
             <div>
               <h2 className="text-3xl font-semibold text-neutral-900 mb-6">Section</h2>
               <div className="space-y-4">
-                <Section spacing="sm" background="default" className="border border-neutral-200 rounded">
+                <Section spacing="sm" variant="dark" className="border border-neutral-200 rounded">
                   <Container>
-                    <p>Section with sm spacing, default background</p>
+                    <p>Section with sm spacing, dark background</p>
                   </Container>
                 </Section>
-                <Section spacing="md" background="neutral" className="border border-neutral-200 rounded">
+                <Section spacing="md" variant="light" className="border border-neutral-200 rounded">
                   <Container>
-                    <p>Section with md spacing, neutral background</p>
+                    <p>Section with md spacing, light background</p>
                   </Container>
                 </Section>
-                <Section spacing="lg" background="accent" className="border border-neutral-200 rounded">
+                <Section spacing="lg" variant="darkElevated" className="border border-neutral-200 rounded">
                   <Container>
-                    <p>Section with lg spacing, accent background</p>
+                    <p>Section with lg spacing, dark elevated background</p>
                   </Container>
                 </Section>
               </div>

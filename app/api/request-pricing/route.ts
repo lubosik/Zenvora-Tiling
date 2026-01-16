@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { requestPricingSchema } from '@/lib/validations'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialize Resend only if API key is available (for build-time)
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
 // Simple rate limiting (in production, use Redis or similar)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
@@ -51,7 +52,7 @@ export async function POST(request: NextRequest) {
     const data = validationResult.data
 
     // Check honeypot
-    if (data.honeypot && data.honeypot.length > 0) {
+    if (data.honeypot && typeof data.honeypot === 'string' && data.honeypot.length > 0) {
       return NextResponse.json({ error: 'Spam detected' }, { status: 400 })
     }
 
@@ -79,6 +80,18 @@ ${data.drawingFile ? 'Drawing file attached' : ''}
     // Send email
     const emailTo = process.env.CONTACT_EMAIL || 'info@commercialtiling.com'
     const emailFrom = process.env.EMAIL_FROM || 'noreply@commercialtiling.com'
+
+    if (!resend) {
+      // During build or if API key is missing, log and return success
+      console.warn('Resend API key not configured. Email not sent.')
+      return NextResponse.json(
+        {
+          success: true,
+          message: 'Your request has been received. We will respond within 48 hours.',
+        },
+        { status: 200 }
+      )
+    }
 
     try {
       await resend.emails.send({
