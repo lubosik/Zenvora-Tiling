@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/motion.css';
+
+/* Zenvora Tiling Luxury Design Tokens - Semantic Color System */
+:root {
+  /* Dark Surfaces */
+  --bg: #0B0B0B;
+  --surface-1: #141414;
+  --surface-2: #1C1C1C;
+  --surface-3: #242424;
+  --border-dark: rgba(255, 255, 255, 0.12);
+  
+  /* Text on Dark (High Contrast) */
+  --text-strong: #F7F5F0;
+  --text: #E9E5DA;
+  --text-muted: #CFC8BB;
+  --text-subtle: #B7B0A3;
+  
+  /* Accent Colors */
+  --accent: #C9A24A;
+  --accent-hover: #B08D3C;
+  
+  /* Light Surfaces (for alternating sections) */
+  --bg-light: #F7F5F0;
+  --surface-light-1: #FFFFFF;
+  --surface-light-2: #F1EEE6;
+  --border-light: rgba(0, 0, 0, 0.10);
+  
+  /* Text on Light */
+  --text-dark-strong: #121212;
+  --text-dark: #2A2A2A;
+  --text-dark-muted: #4A4A4A;
+  
+  /* Legacy support (mapped to new tokens) */
+  --bg2: var(--surface-1);
+  --muted: var(--text-muted);
+  --accentHover: var(--accent-hover);
+  --border: var(--border-dark);
+  
+  /* Typography */
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: linear-gradient(to bottom, var(--bg), var(--surface-1));
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-strong);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  p {
+    max-width: 70ch;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  
+  /* Light section overrides */
+  .section-light {
+    background: var(--bg-light);
+    color: var(--text-dark);
+  }
+  
+  .section-light h1,
+  .section-light h2,
+  .section-light h3,
+  .section-light h4,
+  .section-light h5,
+  .section-light h6 {
+    color: var(--text-dark-strong);
+  }
+  
+  .section-light p {
+    color: var(--text-dark);
+  }
+  
+  /* Dark elevated section */
+  .section-dark-elevated {
+    background: var(--surface-2);
+  }
+}

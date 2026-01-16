@@ -1,0 +1,56 @@
+/* Motion utilities - respects prefers-reduced-motion */
+
+/* Smooth transitions */
+.motion-safe-transition {
+  transition-property: transform, opacity, color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.motion-safe-transition-slow {
+  transition-property: transform, opacity, color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.motion-safe-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Slide up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-safe-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-transition,
+  .motion-safe-transition-slow,
+  .motion-safe-fade-in,
+  .motion-safe-slide-up {
+    animation: none;
+    transition: none;
+  }
+}
+
