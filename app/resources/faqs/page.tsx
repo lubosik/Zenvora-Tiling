@@ -67,7 +67,7 @@ export default function FAQsPage() {
                 href="/request-pricing"
                 className="inline-block px-6 py-3 bg-[var(--accent)] text-[var(--bg)] rounded-lg font-medium hover:bg-[var(--accentHover)] transition-colors"
               >
-                Request Pricing / Send BOQ
+                Request Pricing
               </Link>
             </div>
           </Stack>

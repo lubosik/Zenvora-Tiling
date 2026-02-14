@@ -1,28 +1,18 @@
 import { MetadataRoute } from 'next'
+import { getAllCategorySlugs } from '@/content/products/categories'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://commercialtiling.com' // Update with actual domain
+  const baseUrl = 'https://zenvoratiling.com'
+
+  const productSlugs = getAllCategorySlugs()
+  const productRoutes = productSlugs.map((slug) => `/products/${slug}`)
 
   const routes = [
     '',
     '/products',
-    '/products/3d-series',
-    '/products/abstract-series',
-    '/products/wall-tiles',
-    '/products/full-body-tiles',
-    '/products/vitrified-tiles',
-    '/products/large-format-slabs',
-    '/industries',
-    '/industries/hotels',
-    '/industries/offices',
-    '/industries/retail',
-    '/industries/food-beverage',
-    '/industries/residential-towers',
-    '/industries/hospitals',
-    '/industries/malls',
-    '/industries/airports',
+    ...productRoutes,
     '/services',
-    '/projects',
+    '/contact',
     '/locations',
     '/locations/dubai',
     '/locations/abu-dhabi',
@@ -39,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '' ? 'daily' : 'weekly',
-    priority: route === '' ? 1.0 : route.startsWith('/products') || route.startsWith('/industries') ? 0.9 : 0.8,
+    priority: route === '' ? 1.0 : route.startsWith('/products') ? 0.9 : 0.8,
   }))
 }
-

@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Stack } from '@/components/layout/Stack'
+import { submitToWeb3Forms, CONTACT_EMAIL } from '@/lib/web3forms'
 
 interface FormErrors {
   [key: string]: string
@@ -85,44 +86,27 @@ export function RequestPricingForm() {
     setErrorMessage('')
 
     try {
-      // Convert files to base64 (for small files)
-      // For larger files, you'd upload to S3 first and send URLs
-      let boqFileBase64 = null
-      let drawingFileBase64 = null
+      const messageParts = [
+        `Project: ${formData.projectName}`,
+        `Company: ${formData.companyName}`,
+        `Location: ${formData.location}`,
+        formData.deadline ? `Deadline: ${formData.deadline}` : '',
+        formData.approxSQM ? `Approx SQM: ${formData.approxSQM}` : '',
+        `Floor vs Wall: ${formData.tileType}`,
+        formData.requiredFinishes ? `Required Finishes:\n${formData.requiredFinishes}` : '',
+        formData.whatsapp ? `WhatsApp: ${formData.whatsapp}` : '',
+        formData.boqFile ? `BOQ file attached: ${formData.boqFile.name}` : '',
+        formData.drawingFile ? `Drawing/plan attached: ${formData.drawingFile.name}` : '',
+      ].filter(Boolean)
 
-      if (formData.boqFile && formData.boqFile.size < 5 * 1024 * 1024) {
-        // Max 5MB
-        boqFileBase64 = await fileToBase64(formData.boqFile)
-      }
-
-      if (formData.drawingFile && formData.drawingFile.size < 5 * 1024 * 1024) {
-        drawingFileBase64 = await fileToBase64(formData.drawingFile)
-      }
-
-      const response = await fetch('/api/request-pricing', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          projectName: formData.projectName,
-          companyName: formData.companyName,
-          location: formData.location,
-          deadline: formData.deadline || undefined,
-          approxSQM: formData.approxSQM || undefined,
-          tileType: formData.tileType,
-          requiredFinishes: formData.requiredFinishes || undefined,
-          email: formData.email,
-          whatsapp: formData.whatsapp || undefined,
-          boqFile: boqFileBase64 || undefined,
-          drawingFile: drawingFileBase64 || undefined,
-          honeypot: formData.honeypot,
-        }),
+      const result = await submitToWeb3Forms({
+        subject: `Request Pricing: ${formData.projectName}`,
+        from_name: formData.companyName,
+        email: formData.email,
+        message: messageParts.join('\n'),
       })
 
-      const result = await response.json()
-
-      if (response.ok && result.success) {
+      if (result.success) {
         setSubmitStatus('success')
         // Reset form
         setFormData({
@@ -141,23 +125,14 @@ export function RequestPricingForm() {
         })
       } else {
         setSubmitStatus('error')
-        setErrorMessage(result.error || 'An error occurred. Please try again.')
+        setErrorMessage(result.message || 'An error occurred. Please try again.')
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error')
       setErrorMessage('Network error. Please check your connection and try again.')
     } finally {
       setIsSubmitting(false)
     }
-  }
-
-  const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
-      reader.onload = () => resolve(reader.result as string)
-      reader.onerror = (error) => reject(error)
-    })
   }
 
   if (submitStatus === 'success') {
@@ -184,7 +159,7 @@ export function RequestPricingForm() {
             <h3 className="font-heading text-2xl font-bold text-[var(--text-strong)] mb-2 tracking-tight">Request Submitted Successfully!</h3>
             <p className="text-[var(--text)] mb-4">
               Thank you for your interest. We have received your BOQ and will respond within{' '}
-              <strong>48 hours</strong> with detailed pricing and recommendations.
+              <strong>1–2 business days</strong> to begin the design matching process.
             </p>
             <p className="text-sm text-[var(--text-muted)]">
               You will receive a confirmation email shortly. If you have urgent questions, please
@@ -426,8 +401,8 @@ export function RequestPricingForm() {
           <p className="text-sm text-red-800">{errorMessage}</p>
           <p className="text-xs text-red-600 mt-2">
             If the problem persists, please contact us directly at{' '}
-            <a href="mailto:info@commercialtiling.com" className="underline">
-              info@commercialtiling.com
+            <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
+              {CONTACT_EMAIL}
             </a>
           </p>
         </div>
@@ -435,11 +410,11 @@ export function RequestPricingForm() {
 
       {/* Submit Button */}
       <Button type="submit" variant="primary" size="lg" fullWidth disabled={isSubmitting}>
-        {isSubmitting ? 'Submitting...' : 'Submit BOQ / Request Pricing'}
+        {isSubmitting ? 'Submitting...' : 'Request Pricing'}
       </Button>
 
       <p className="text-xs text-neutral-500 text-center">
-        By submitting this form, you agree to our privacy policy. We will respond within 48 hours.
+        By submitting this form, you agree to our privacy policy. We will respond within 1–2 business days.
       </p>
     </form>
   )

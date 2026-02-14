@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 const siteConfig = {
   name: 'Zenvora Tiling',
   description:
-    'Premium tiles for high-ticket commercial projects worldwide. BOQ-based pricing for malls, hotels, offices, towers, and fit-out projects. UAE-based support with worldwide delivery.',
-  url: 'https://zenvoratiling.com', // Update with actual domain
+    'Premium porcelain tiles for commercial and residential projects. From enquiry to vessel loading in ~60 days. UAE-based support, worldwide delivery.',
+  url: 'https://zenvoratiling.com',
   ogImage: '/og-image.jpg', // To be added
   twitterHandle: '@zenvoratiling', // Update if available
 }
@@ -71,7 +71,7 @@ export function createMetadata({
 }
 
 export const defaultMetadata: Metadata = createMetadata({
-  title: 'Premium Tiles for High-Ticket Commercial Projects Worldwide',
+  title: 'Premium Porcelain Tiles for Projects That Demand More',
   description: siteConfig.description,
   path: '/',
 })

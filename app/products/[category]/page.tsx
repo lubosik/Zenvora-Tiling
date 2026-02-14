@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
-import { Stack } from '@/components/layout/Stack'
-import { Grid } from '@/components/layout/Grid'
-import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { createMetadata } from '@/lib/metadata'
 import { StructuredData } from '@/components/seo/StructuredData'
@@ -29,43 +27,18 @@ export async function generateMetadata({ params }: ProductCategoryPageProps) {
 
   if (!categoryData) {
     return createMetadata({
-      title: 'Product Category Not Found',
-      description: 'The requested product category could not be found.',
+      title: 'Collection Not Found',
+      description: 'The requested collection could not be found.',
       path: `/products/${category}`,
     })
   }
 
   return createMetadata({
-    title: `${categoryData.name} - Commercial Tiles`,
+    title: `${categoryData.name} - Collections`,
     description: categoryData.description,
     path: `/products/${category}`,
   })
 }
-
-// Placeholder product data - to be replaced with actual product data
-const placeholderProducts = [
-  {
-    id: 'product-1',
-    name: 'Sample Product 1',
-    finish: 'Polished',
-    size: '600x600mm',
-    surface: 'Smooth',
-  },
-  {
-    id: 'product-2',
-    name: 'Sample Product 2',
-    finish: 'Matt',
-    size: '800x800mm',
-    surface: 'Textured',
-  },
-  {
-    id: 'product-3',
-    name: 'Sample Product 3',
-    finish: 'Satin',
-    size: '600x1200mm',
-    surface: 'Smooth',
-  },
-]
 
 export default async function ProductCategoryPage({ params }: ProductCategoryPageProps) {
   const { category } = await params
@@ -76,87 +49,77 @@ export default async function ProductCategoryPage({ params }: ProductCategoryPag
   }
 
   const breadcrumbs = generateBreadcrumbSchema(generateBreadcrumbs(`/products/${category}`))
+  const showcaseItems = categoryData.showcaseItems ?? []
 
   return (
     <>
       <StructuredData breadcrumbs={breadcrumbs} />
-      <Section spacing="lg">
+      <Section spacing="lg" variant="dark">
         <Container>
-          <Stack spacing="lg">
-            {/* Header */}
-            <div>
-              <h1 className="font-heading text-4xl sm:text-5xl font-bold text-[var(--text)] mb-4 tracking-tight">
-                {categoryData.name}
-              </h1>
-              <p className="text-xl text-[var(--muted)] max-w-[65ch]">{categoryData.description}</p>
-            </div>
+          <div className="mb-12">
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-[var(--text-strong)] mb-4 tracking-tight">
+              {categoryData.name}
+            </h1>
+            <p className="text-xl text-[var(--text-muted)] max-w-[65ch]">{categoryData.description}</p>
+          </div>
 
-            {/* Product Gallery */}
-            <div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[var(--text)] mb-6 tracking-tight">
-                Available Products
-              </h2>
-              <Grid cols={3} gap="lg">
-                {placeholderProducts.map((product) => (
-                  <Card key={product.id} hover padding="lg">
-                    <Stack spacing="md">
-                      {/* Product Image Placeholder */}
-                      <div className="aspect-square bg-neutral-200 rounded-lg flex items-center justify-center">
-                        <span className="text-sm text-neutral-500">Product Image</span>
-                      </div>
+          <div className="mb-8">
+            <h2 className="font-heading text-2xl font-semibold text-[var(--text-strong)] mb-2">
+              Explore some of our projects
+            </h2>
+            <p className="text-[var(--text)] max-w-[65ch]">
+              The examples below are a small selection from our catalogue. We have many more designs and finishes available. Reach out to learn more, request samples or send us your custom design and we&apos;ll match it where possible.
+            </p>
+          </div>
 
-                      {/* Product Name */}
-                      <h3 className="font-heading text-lg font-bold text-[var(--text)] tracking-tight">{product.name}</h3>
+          {/* 3 showcase tiles */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {showcaseItems.map((item) => (
+              <div
+                key={item.id}
+                className="rounded-xl overflow-hidden bg-[var(--surface-2)] border border-[var(--border-dark)]"
+              >
+                <div className="aspect-square relative bg-[var(--surface-3)] overflow-hidden">
+                  {item.image && !item.image.includes('placeholders') ? (
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-sm text-[var(--text-muted)]">Image Coming Soon</span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-4">
+                  <p className="text-sm text-[var(--text-muted)] mb-2">{item.specs}</p>
+                  {item.description && (
+                    <p className="text-sm text-[var(--text)] mb-4 leading-relaxed">{item.description}</p>
+                  )}
+                  <Button href={internalLinks.requestPricing.href} variant="primary" size="md" fullWidth>
+                    Request Pricing
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
 
-                      {/* Spec Table */}
-                      <div className="border-t border-neutral-200 pt-4">
-                        <table className="w-full text-sm">
-                          <tbody>
-                            <tr>
-                              <td className="py-2 text-neutral-600 font-medium">Finish:</td>
-                              <td className="py-2 text-neutral-900">{product.finish}</td>
-                            </tr>
-                            <tr>
-                              <td className="py-2 text-neutral-600 font-medium">Size:</td>
-                              <td className="py-2 text-neutral-900">{product.size}</td>
-                            </tr>
-                            <tr>
-                              <td className="py-2 text-neutral-600 font-medium">Surface:</td>
-                              <td className="py-2 text-neutral-900">{product.surface}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-
-                      {/* CTA */}
-                      <Button
-                        href={internalLinks.requestPricing.href}
-                        variant="primary"
-                        size="md"
-                        fullWidth
-                      >
-                        Add to Quote / Request Pricing
-                      </Button>
-                    </Stack>
-                  </Card>
-                ))}
-              </Grid>
-            </div>
-
-            {/* Additional Info */}
-            <div className="bg-neutral-50 rounded-xl p-6">
-              <p className="text-[var(--muted)]">
-                Need custom specifications or bulk pricing?{' '}
-                <Link
-                  href={internalLinks.requestPricing.href}
-                  className="text-[var(--accent)] hover:text-[var(--accentHover)] font-medium underline"
-                >
-                  Contact us
-                </Link>{' '}
-                with your requirements for a detailed quote.
-              </p>
-            </div>
-          </Stack>
+          {/* CTA block - dark section so text is visible */}
+          <div className="mt-12 rounded-xl bg-[var(--surface-2)] border border-[var(--border-dark)] p-6">
+            <p className="text-[var(--text)]">
+              We have loads more designs in our catalogue. Need custom specifications, bulk pricing or want to send us a design?{' '}
+              <Link
+                href={internalLinks.requestPricing.href}
+                className="text-[var(--accent)] hover:text-[var(--accent-hover)] font-medium underline"
+              >
+                Get in touch
+              </Link>{' '}
+              We&apos;ll discuss options and begin the design matching process within 1 to 2 business days.
+            </p>
+          </div>
         </Container>
       </Section>
     </>

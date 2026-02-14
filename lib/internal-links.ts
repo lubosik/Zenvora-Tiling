@@ -1,6 +1,6 @@
 /**
  * Internal linking helpers with descriptive anchor text
- * Ensures consistent, SEO-friendly internal links throughout the site
+ * SEO-friendly internal links. No industries (removed from site).
  */
 
 export interface InternalLink {
@@ -10,112 +10,74 @@ export interface InternalLink {
 }
 
 export const internalLinks = {
-  // Primary CTAs
   requestPricing: {
     href: '/request-pricing',
-    label: 'Request Pricing / Send BOQ',
-    description: 'Submit your BOQ for a commercial tile quote',
-  },
-  sendBOQ: {
-    href: '/request-pricing',
-    label: 'Send Your BOQ',
-    description: 'Upload your Bill of Quantities for pricing',
+    label: 'Request Pricing',
+    description: 'Submit your requirements for tile pricing',
   },
   browseProducts: {
     href: '/products',
-    label: 'Browse Picks',
+    label: 'Browse Collections',
     description: 'Explore our premium tile collections',
   },
 
-  // Products
   products: {
     href: '/products',
-    label: 'Commercial Tiles',
-    description: 'View all commercial tile products',
+    label: 'Collections',
+    description: 'View all tile collections',
   },
-  product3D: {
-    href: '/products/3d-series',
-    label: '3D Series Tiles',
-    description: 'Three-dimensional tile designs',
+  productCeramicBody: {
+    href: '/products/ceramic-body-floor-tiles',
+    label: 'Ceramic Body Floor Tiles',
+    description: 'Ceramic body floor tile collection',
   },
-  productAbstract: {
-    href: '/products/abstract-series',
-    label: 'Abstract Series Tiles',
-    description: 'Abstract pattern tile collections',
+  productDoubleDigital: {
+    href: '/products/double-digital-floor-tiles',
+    label: 'Double Digital Floor Tiles',
+    description: 'Double digital print floor tiles',
+  },
+  productFullBody: {
+    href: '/products/full-body-tiles',
+    label: 'Full Body Tiles',
+    description: 'Full-body porcelain tiles',
+  },
+  productGlazedVitrified: {
+    href: '/products/glazed-vitrified-porcelain-floor-tiles',
+    label: 'Glazed Vitrified Porcelain Floor Tiles',
+    description: 'Glazed vitrified porcelain collection',
+  },
+  productLargeSlab: {
+    href: '/products/large-porcelain-slab-tiles',
+    label: 'Large Porcelain Slab Tiles',
+    description: 'Large-format porcelain slabs',
   },
   productWall: {
     href: '/products/wall-tiles',
     label: 'Wall Tiles',
-    description: 'Premium wall tile options',
-  },
-  productFullBody: {
-    href: '/products/full-body-tiles',
-    label: 'Full-Body Tiles',
-    description: 'Full-body porcelain tiles',
-  },
-  productVitrified: {
-    href: '/products/vitrified-tiles',
-    label: 'Vitrified Tiles',
-    description: 'Vitrified tile collections',
-  },
-  productLargeFormat: {
-    href: '/products/large-format-slabs',
-    label: 'Large Format Slabs (800x3000mm)',
-    description: 'Extra-large format tile slabs',
+    description: 'Wall tile collection',
   },
 
-  // Industries
-  industries: {
-    href: '/industries',
-    label: 'Industries We Serve',
-    description: 'Commercial tile solutions by industry',
-  },
-  industryHotels: {
-    href: '/industries/hotels',
-    label: 'Hotel Tile Solutions',
-    description: 'Tiles for hotel projects',
-  },
-  industryOffices: {
-    href: '/industries/offices',
-    label: 'Office Tile Solutions',
-    description: 'Tiles for office buildings',
-  },
-  industryRetail: {
-    href: '/industries/retail',
-    label: 'Retail Tile Solutions',
-    description: 'Tiles for retail spaces',
-  },
-  industryFandB: {
-    href: '/industries/food-beverage',
-    label: 'Food & Beverage Tile Solutions',
-    description: 'Tiles for F&B establishments',
-  },
-
-  // Services
   services: {
     href: '/services',
     label: 'Our Services',
-    description: 'Commercial tile procurement services',
+    description: 'Tile procurement services',
   },
   boqPricing: {
     href: '/services#boq-pricing',
-    label: 'BOQ Pricing Service',
-    description: 'Get pricing for your Bill of Quantities',
+    label: 'Request Pricing',
+    description: 'Get pricing for your project',
   },
   samples: {
     href: '/services#samples',
     label: 'Samples & Approvals',
-    description: 'Request tile samples for approval',
+    description: 'Request tile samples',
   },
 
-  // Projects
-  projects: {
-    href: '/projects',
-    label: 'Our Projects',
-    description: 'View completed commercial tile projects',
+  contact: {
+    href: '/contact',
+    label: 'Contact Us',
+    description: 'Send a message or email us',
   },
-
-  // Locations
   locations: {
     href: '/locations',
     label: 'Locations',
@@ -123,15 +85,14 @@ export const internalLinks = {
   },
   locationDubai: {
     href: '/locations/dubai',
-    label: 'Dubai Commercial Tiles',
+    label: 'Dubai',
     description: 'Tile supply in Dubai',
   },
 
-  // Resources
   resources: {
     href: '/resources',
     label: 'Resources',
-    description: 'Tile guides and resources',
+    description: 'Guides and resources',
   },
   faqs: {
     href: '/resources/faqs',
@@ -141,26 +102,19 @@ export const internalLinks = {
   downloads: {
     href: '/resources/downloads',
     label: 'Downloads Library',
-    description: 'Download catalogs and specifications',
+    description: 'Catalogs and specifications',
   },
   downloadCatalog: {
     href: '/resources/downloads',
     label: 'Download Full Catalog',
-    description: 'Download the complete commercial tile catalog',
+    description: 'Download the complete catalog',
   },
 } as const
 
-/**
- * Helper function to create an internal link with consistent structure
- */
 export function createInternalLink(key: keyof typeof internalLinks): InternalLink {
   return internalLinks[key]
 }
 
-/**
- * Get all links for a specific category
- */
-export function getLinksByCategory(category: 'products' | 'industries' | 'services') {
+export function getLinksByCategory(category: 'products' | 'services') {
   return Object.entries(internalLinks).filter(([key]) => key.startsWith(category))
 }
-

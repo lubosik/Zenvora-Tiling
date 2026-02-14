@@ -35,10 +35,10 @@ export default function LocationsPage() {
               <h1 className="font-heading text-4xl sm:text-5xl font-bold text-[var(--text)] mb-6 tracking-tight">
                 Locations We Serve
               </h1>
-              <p className="text-xl text-[var(--muted)] leading-relaxed max-w-[65ch]">
-                We provide premium commercial tile supply across the UAE and internationally. While
-                Dubai is our primary market, we serve projects in multiple locations with
-                coordinated logistics and local expertise.
+              <p className="text-xl text-[var(--text-muted)] leading-relaxed max-w-[65ch]">
+                Worldwide delivery with a focus on Dubai and the UAE as our primary market. Sea
+                transit is typically 45–60 days depending on destination, with an additional
+                10–15 days from port to your warehouse.
               </p>
             </div>
 
@@ -148,7 +148,7 @@ export default function LocationsPage() {
                 information.
               </p>
               <Button href={internalLinks.requestPricing.href} variant="secondary" size="lg">
-                {internalLinks.sendBOQ.label}
+                {internalLinks.requestPricing.label}
               </Button>
             </div>
           </Stack>

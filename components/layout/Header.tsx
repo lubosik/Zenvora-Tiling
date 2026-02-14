@@ -8,10 +8,9 @@ import { Button } from '@/components/ui/Button'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/industries', label: 'Industries' },
+  { href: '/products', label: 'Collections' },
   { href: '/services', label: 'Services' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/contact', label: 'Contact' },
   { href: '/locations', label: 'Locations' },
   { href: '/resources', label: 'Resources' },
 ]
@@ -64,7 +63,7 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:block">
             <Button href="/request-pricing" variant="primary" size="md">
-              Request Pricing / Send BOQ
+              Request Pricing
             </Button>
           </div>
 
@@ -140,7 +139,7 @@ export function Header() {
                   fullWidth
                   onClick={closeMobileMenu}
                 >
-                  Request Pricing / Send BOQ
+                  Request Pricing
                 </Button>
               </div>
             </nav>

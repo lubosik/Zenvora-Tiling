@@ -13,7 +13,7 @@ export function SEOTextBlock() {
           </h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg leading-relaxed mb-6 max-w-[70ch] text-[var(--text)]">
-              As a leading tile supplier, we serve high-ticket commercial projects worldwide—from
+              As a leading tile supplier, we serve high-ticket commercial projects worldwide, from
               malls and hotels to offices, towers, and fit-out projects. Our curated selection of{' '}
               <Link
                 href={internalLinks.products.href}
@@ -40,16 +40,10 @@ export function SEOTextBlock() {
               >
                 locations
               </Link>
-              , we provide end-to-end procurement support from BOQ pricing through delivery. Our
-              team understands the complexities of commercial construction timelines, batch
-              consistency requirements, and the importance of{' '}
-              <Link
-                href={internalLinks.requestPricing.href}
-                className="text-[var(--accent)] hover:text-[var(--accentHover)] font-medium underline"
-              >
-                accurate BOQ-based pricing
-              </Link>{' '}
-              for project budgeting and procurement workflows.
+              , we provide end-to-end procurement support from design matching through delivery. Our
+              team understands commercial construction timelines, batch consistency, and the value of
+              clear process steps, from initial enquiry (around 60 days to vessel loading) through
+              quality-checked production and worldwide shipping.
             </p>
             <p className="text-lg leading-relaxed max-w-[70ch] text-[var(--text)]">
               With a focus on quality, reliability, and transparent communication, we&apos;ve become

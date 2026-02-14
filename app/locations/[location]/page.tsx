@@ -99,28 +99,17 @@ export default async function LocationPage({ params }: LocationPageProps) {
               </Container>
             </Section>
 
-            {/* Industries Served */}
+            {/* Sectors in this location */}
             <div>
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[var(--text-strong)] mb-6 tracking-tight">
-                Industries We Serve in {locationData.name}
+                Sectors We Serve in {locationData.name}
               </h2>
               <div className="flex flex-wrap gap-3">
-                {locationData.industries.map((industry) => {
-                  const industrySlug = industry.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '')
-                  const industryMap: Record<string, string> = {
-                    'food-&-beverage': 'food-beverage',
-                    'residential-towers': 'residential-towers',
-                  }
-                  const slug = industryMap[industrySlug] || industrySlug
-
-                  return (
-                    <Link key={industry} href={`/industries/${slug}`}>
-                      <Tag variant="accent" size="md" className="cursor-pointer hover:bg-accent-200 transition-colors">
-                        {industry}
-                      </Tag>
-                    </Link>
-                  )
-                })}
+                {locationData.industries.map((industry) => (
+                  <Tag key={industry} variant="accent" size="md">
+                    {industry}
+                  </Tag>
+                ))}
               </div>
             </div>
 
@@ -135,10 +124,10 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     We&apos;ve completed several commercial tile projects in {locationData.name}.
                     View our{' '}
                     <Link
-                      href={internalLinks.projects.href}
-                      className="text-accent-600 hover:text-accent-700 font-medium underline"
+                      href={internalLinks.products.href}
+                      className="text-[var(--accent)] hover:text-[var(--accent-hover)] font-medium underline"
                     >
-                      projects portfolio
+                      collections
                     </Link>{' '}
                     to see examples of our work in this location.
                   </p>
@@ -232,7 +221,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 and logistics information specific to {locationData.name}.
               </p>
               <Button href={internalLinks.requestPricing.href} variant="secondary" size="lg">
-                {internalLinks.sendBOQ.label}
+                {internalLinks.requestPricing.label}
               </Button>
             </div>
           </Stack>

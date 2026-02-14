@@ -3,30 +3,26 @@ import { Container } from './Container'
 import { Button } from '@/components/ui/Button'
 import { Stack } from './Stack'
 import { Grid } from './Grid'
+import { CONTACT_EMAIL } from '@/lib/web3forms'
 
 const footerLinks = {
-  products: [
-    { href: '/products/3d-series', label: '3D Series' },
-    { href: '/products/abstract-series', label: 'Abstract Series' },
+  collections: [
+    { href: '/products/ceramic-body-floor-tiles', label: 'Ceramic Body Floor Tiles' },
+    { href: '/products/double-digital-floor-tiles', label: 'Double Digital Floor Tiles' },
+    { href: '/products/full-body-tiles', label: 'Full Body Tiles' },
+    { href: '/products/glazed-vitrified-porcelain-floor-tiles', label: 'Glazed Vitrified Porcelain' },
+    { href: '/products/large-porcelain-slab-tiles', label: 'Large Porcelain Slab Tiles' },
     { href: '/products/wall-tiles', label: 'Wall Tiles' },
-    { href: '/products/full-body-tiles', label: 'Full-Body Tiles' },
-    { href: '/products/vitrified-tiles', label: 'Vitrified Tiles' },
-    { href: '/products/large-format-slabs', label: 'Large Format Slabs' },
-  ],
-  industries: [
-    { href: '/industries/hotels', label: 'Hotels' },
-    { href: '/industries/offices', label: 'Offices' },
-    { href: '/industries/retail', label: 'Retail' },
-    { href: '/industries/food-beverage', label: 'Food & Beverage' },
   ],
   company: [
     { href: '/services', label: 'Services' },
-    { href: '/projects', label: 'Projects' },
+    { href: '/contact', label: 'Contact' },
     { href: '/locations', label: 'Locations' },
     { href: '/resources', label: 'Resources' },
   ],
   support: [
     { href: '/request-pricing', label: 'Request Pricing' },
+    { href: '/contact', label: 'Contact' },
     { href: '/resources', label: 'Resources' },
     { href: '/resources/faqs', label: 'FAQs' },
   ],
@@ -37,7 +33,7 @@ export function Footer() {
     <footer className="bg-[var(--bg2)] text-[var(--muted)] border-t border-[var(--border)]">
       <Container>
         <div className="py-12 lg:py-16">
-          <Grid cols={4} gap="lg" responsive={false} className="lg:grid-cols-4">
+          <Grid cols={3} gap="lg" responsive={false} className="lg:grid-cols-3">
             {/* Contact CTA */}
             <div className="lg:col-span-1">
               <Stack spacing="md">
@@ -45,43 +41,27 @@ export function Footer() {
                 <p className="text-sm text-[var(--muted)] max-w-[50ch]">
                   Ready to source premium tiles for your high-ticket commercial or residential project?
                 </p>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-sm text-[var(--accent)] hover:underline"
+                >
+                  {CONTACT_EMAIL}
+                </a>
                 <Button href="/request-pricing" variant="primary" size="md" className="font-medium">
-                  Send Your BOQ
+                  Request Pricing
                 </Button>
               </Stack>
             </div>
 
-            {/* Products */}
+            {/* Collections */}
             <div>
               <Stack spacing="sm">
                 <h3 className="text-[var(--text)] text-sm font-medium uppercase tracking-wider">
-                  Products
+                  Collections
                 </h3>
-                <nav aria-label="Footer products navigation">
+                <nav aria-label="Footer collections navigation">
                   <Stack spacing="xs">
-                    {footerLinks.products.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </Stack>
-                </nav>
-              </Stack>
-            </div>
-
-            {/* Industries */}
-            <div>
-              <Stack spacing="sm">
-                <h3 className="text-[var(--text)] text-sm font-medium uppercase tracking-wider">
-                  Industries
-                </h3>
-                <nav aria-label="Footer industries navigation">
-                  <Stack spacing="xs">
-                    {footerLinks.industries.map((link) => (
+                    {footerLinks.collections.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}

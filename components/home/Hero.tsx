@@ -11,7 +11,7 @@ export function Hero() {
         {/* Desktop Image */}
         <div className="hidden lg:block absolute inset-0">
           <Image
-            src="/hero-desktop.png"
+            src="/hero-desktop.jpeg"
             alt="Premium tiles for high-ticket commercial projects"
             fill
             priority
@@ -22,7 +22,7 @@ export function Hero() {
         {/* Mobile Image */}
         <div className="lg:hidden absolute inset-0">
           <Image
-            src="/hero-mobile.png"
+            src="/hero-mobile.jpeg"
             alt="Premium tiles for high-ticket commercial projects"
             fill
             priority
@@ -48,20 +48,20 @@ export function Hero() {
       <Container className="relative z-20">
         <div className="max-w-2xl py-24 lg:py-32">
           <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--text-strong)] mb-8 leading-[1.1] tracking-tight">
-            Premium Tiles for High-Ticket Commercial Projects Worldwide
+            Premium Porcelain Tiles for Projects That Demand More
           </h1>
           <p className="text-lg sm:text-xl text-[var(--text)] mb-12 leading-relaxed max-w-[70ch]">
-            BOQ-based pricing and project execution for malls, hotels, offices, towers, and fit-out
-            projects. UAE-based support with worldwide delivery.
+            From enquiry to vessel loading in approximately 60 days. Physical samples, quality-checked
+            production, and worldwide delivery.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
-              href={internalLinks.sendBOQ.href}
+              href={internalLinks.requestPricing.href}
               variant="primary"
               size="lg"
               className="font-medium"
             >
-              Request Pricing / Send BOQ
+              Request Pricing
             </Button>
             <Button
               href={internalLinks.browseProducts.href}

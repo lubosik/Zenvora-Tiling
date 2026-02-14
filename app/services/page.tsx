@@ -21,9 +21,9 @@ const services = [
     id: 'boq-pricing',
     title: 'BOQ Pricing',
     description:
-      'Get accurate, detailed pricing for your Bill of Quantities within 48 hours. We provide comprehensive quotes with specifications, lead times, and batch information—no surprises.',
+      'Share your requirements and we begin design matching within 1–2 business days. We provide detailed pricing with specifications, lead times, and batch information.',
     benefits: [
-      'Fast turnaround (48-hour response time)',
+      'Initial response within 1–2 business days',
       'Detailed specifications included',
       'Transparent pricing with no hidden costs',
       'Batch consistency information',
@@ -150,7 +150,7 @@ export default function ServicesPage() {
                 Commercial Tile Procurement Services
               </h1>
               <p className="text-xl text-[var(--muted)] leading-relaxed mb-4 max-w-[65ch]">
-                We don&apos;t just supply tiles—we reduce risk and ensure execution certainty for
+                We don&apos;t just supply tiles. We reduce risk and ensure execution certainty for
                 your commercial projects. From BOQ pricing to final delivery, we handle every
                 detail.
               </p>
@@ -241,12 +241,12 @@ export default function ServicesPage() {
                   <div className="text-[var(--muted)]">Batch Consistency</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[var(--accent)] mb-2">48hr</div>
-                  <div className="text-[var(--muted)]">Quote Response Time</div>
+                  <div className="text-3xl font-bold text-[var(--accent)] mb-2">1–2 days</div>
+                  <div className="text-[var(--muted)]">Initial Response</div>
                 </div>
               </div>
               <Button href={internalLinks.requestPricing.href} variant="secondary" size="lg">
-                {internalLinks.sendBOQ.label}
+                {internalLinks.requestPricing.label}
               </Button>
             </div>
           </Stack>

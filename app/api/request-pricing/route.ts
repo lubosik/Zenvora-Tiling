@@ -87,7 +87,7 @@ ${data.drawingFile ? 'Drawing file attached' : ''}
       return NextResponse.json(
         {
           success: true,
-          message: 'Your request has been received. We will respond within 48 hours.',
+          message: 'Your request has been received. We will respond within 1–2 business days.',
         },
         { status: 200 }
       )
@@ -108,7 +108,7 @@ ${data.drawingFile ? 'Drawing file attached' : ''}
       return NextResponse.json(
         {
           success: true,
-          message: 'Your request has been submitted successfully. We will respond within 48 hours.',
+          message: 'Your request has been submitted successfully. We will respond within 1–2 business days.',
         },
         { status: 200 }
       )

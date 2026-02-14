@@ -2,16 +2,15 @@ import { Hero } from '@/components/home/Hero'
 import { BuiltFor } from '@/components/home/BuiltFor'
 import { CollectionsGallery } from '@/components/home/CollectionsGallery'
 import { ProcessTimeline } from '@/components/home/ProcessTimeline'
-import { ProjectsLookbook } from '@/components/home/ProjectsLookbook'
 import { SEOTextBlock } from '@/components/home/SEOTextBlock'
 import { createMetadata } from '@/lib/metadata'
 import { StructuredData } from '@/components/seo/StructuredData'
 import { generateBreadcrumbSchema, generateBreadcrumbs } from '@/lib/structured-data'
 
 export const metadata = createMetadata({
-  title: 'Premium Tiles for High-Ticket Commercial Projects Worldwide',
+  title: 'Premium Porcelain Tiles for Projects That Demand More',
   description:
-    'Premium tiles for high-ticket commercial projects worldwide. BOQ-based pricing for malls, hotels, offices, towers, and fit-out projects. UAE-based support with worldwide delivery.',
+    'Premium porcelain tiles for commercial and residential projects. From enquiry to vessel loading in ~60 days. Physical samples, quality-checked production, worldwide delivery. UAE-based support.',
   path: '/',
 })
 
@@ -25,7 +24,6 @@ export default function Home() {
       <BuiltFor />
       <CollectionsGallery />
       <ProcessTimeline />
-      <ProjectsLookbook />
       <SEOTextBlock />
     </>
   )

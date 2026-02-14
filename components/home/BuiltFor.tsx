@@ -43,8 +43,8 @@ export function BuiltFor() {
           </div>
 
           <div className="text-center">
-            <Button href={internalLinks.sendBOQ.href} variant="primary" size="lg" className="font-medium">
-              Send BOQ
+            <Button href={internalLinks.requestPricing.href} variant="primary" size="lg" className="font-medium">
+              Request Pricing
             </Button>
           </div>
         </div>

@@ -32,7 +32,7 @@ export function StickyCTA() {
             Submit your BOQ or project requirements for detailed pricing and recommendations.
           </p>
           <Button href={internalLinks.requestPricing.href} variant="primary" size="md" fullWidth>
-            {internalLinks.sendBOQ.label}
+            {internalLinks.requestPricing.label}
           </Button>
         </Stack>
       </Card>

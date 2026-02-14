@@ -32,16 +32,6 @@ export const images = {
     airports: '/placeholders/industries/airports.jpg',
   },
 
-  // Project images
-  projects: {
-    featured: [
-      '/placeholders/projects/featured-1.jpg',
-      '/placeholders/projects/featured-2.jpg',
-      '/placeholders/projects/featured-3.jpg',
-      '/placeholders/projects/featured-4.jpg',
-    ],
-  },
-
   // General placeholders
   placeholders: {
     tile: '/placeholders/tile-placeholder.jpg',
