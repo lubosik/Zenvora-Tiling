@@ -16,15 +16,12 @@ const footerLinks = {
   ],
   company: [
     { href: '/services', label: 'Services' },
-    { href: '/contact', label: 'Contact' },
     { href: '/locations', label: 'Locations' },
-    { href: '/resources', label: 'Resources' },
+    { href: '/contact', label: 'Contact' },
   ],
   support: [
     { href: '/request-pricing', label: 'Request Pricing' },
     { href: '/contact', label: 'Contact' },
-    { href: '/resources', label: 'Resources' },
-    { href: '/resources/faqs', label: 'FAQs' },
   ],
 }
 

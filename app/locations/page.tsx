@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Container } from '@/components/layout/Container'
 import { Section } from '@/components/layout/Section'
 import { Stack } from '@/components/layout/Stack'
@@ -66,8 +67,14 @@ export default function LocationsPage() {
                       Learn more about Dubai →
                     </Link>
                   </div>
-                  <div className="aspect-video bg-neutral-200 rounded-lg flex items-center justify-center">
-                    <span className="text-sm text-neutral-500">Dubai Location Image</span>
+                  <div className="aspect-video relative rounded-lg overflow-hidden bg-[var(--surface-2)]">
+                    <Image
+                      src="/locations/dubai.jpg"
+                      alt="Dubai skyline and commercial landscape"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
                   </div>
                 </div>
               </Card>

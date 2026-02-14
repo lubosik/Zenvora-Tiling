@@ -33,24 +33,20 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card padding="md" className="text-center">
-                <p className="text-sm text-[var(--text-muted)] mb-1">Email</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <Card padding="lg" className="text-center min-w-0 overflow-hidden">
+                <p className="text-sm text-[var(--text-muted)] mb-3">Email</p>
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="font-medium text-[var(--accent)] hover:underline"
+                  className="block font-medium text-[var(--accent)] hover:underline text-base sm:text-lg break-all px-2"
                 >
                   {CONTACT_EMAIL}
                 </a>
               </Card>
-              <Card padding="md" className="text-center md:col-span-2">
-                <p className="text-sm text-[var(--text-muted)] mb-1">Quick links</p>
+              <Card padding="lg" className="text-center">
+                <p className="text-sm text-[var(--text-muted)] mb-3">Quick links</p>
                 <Link href="/request-pricing" className="text-[var(--accent)] hover:underline font-medium">
                   Request Pricing
-                </Link>
-                <span className="text-[var(--text-muted)] mx-2">·</span>
-                <Link href="/resources/faqs" className="text-[var(--accent)] hover:underline font-medium">
-                  FAQs
                 </Link>
               </Card>
             </div>

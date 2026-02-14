@@ -190,7 +190,7 @@ export function RequestPricingForm() {
         <h3 className="font-heading text-lg font-bold text-[var(--text-strong)] mb-4 tracking-tight">Project Information</h3>
         <Stack spacing="md">
           <div>
-            <label htmlFor="projectName" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="projectName" className="block text-sm font-medium text-[var(--text)] mb-2">
               Project Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -210,7 +210,7 @@ export function RequestPricingForm() {
           </div>
 
           <div>
-            <label htmlFor="companyName" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="companyName" className="block text-sm font-medium text-[var(--text)] mb-2">
               Company Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -230,7 +230,7 @@ export function RequestPricingForm() {
           </div>
 
           <div>
-            <label htmlFor="location" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="location" className="block text-sm font-medium text-[var(--text)] mb-2">
               Location <span className="text-red-500">*</span>
             </label>
             <input
@@ -250,7 +250,7 @@ export function RequestPricingForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="deadline" className="block text-sm font-medium text-neutral-700 mb-2">
+              <label htmlFor="deadline" className="block text-sm font-medium text-[var(--text)] mb-2">
                 Deadline / Handover Date
               </label>
               <input
@@ -264,7 +264,7 @@ export function RequestPricingForm() {
             </div>
 
             <div>
-              <label htmlFor="approxSQM" className="block text-sm font-medium text-neutral-700 mb-2">
+              <label htmlFor="approxSQM" className="block text-sm font-medium text-[var(--text)] mb-2">
                 Approximate SQM
               </label>
               <input
@@ -280,7 +280,7 @@ export function RequestPricingForm() {
           </div>
 
           <div>
-            <label htmlFor="tileType" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="tileType" className="block text-sm font-medium text-[var(--text)] mb-2">
               Floor vs Wall
             </label>
             <select
@@ -299,7 +299,7 @@ export function RequestPricingForm() {
           <div>
             <label
               htmlFor="requiredFinishes"
-              className="block text-sm font-medium text-neutral-700 mb-2"
+              className="block text-sm font-medium text-[var(--text)] mb-2"
             >
               Required Finishes
             </label>
@@ -321,7 +321,7 @@ export function RequestPricingForm() {
         <h3 className="font-heading text-lg font-bold text-[var(--text)] mb-4 tracking-tight">Upload Documents</h3>
         <Stack spacing="md">
           <div>
-            <label htmlFor="boqFile" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="boqFile" className="block text-sm font-medium text-[var(--text)] mb-2">
               Upload BOQ / Bill of Quantities
             </label>
             <input
@@ -332,13 +332,13 @@ export function RequestPricingForm() {
               accept=".pdf,.xlsx,.xls,.doc,.docx"
               className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
-            <p className="mt-1 text-xs text-neutral-500">
+            <p className="mt-1 text-xs text-[var(--text-muted)]">
               Accepted formats: PDF, Excel, Word (Max 5MB)
             </p>
           </div>
 
           <div>
-            <label htmlFor="drawingFile" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="drawingFile" className="block text-sm font-medium text-[var(--text)] mb-2">
               Upload Drawings / Plans
             </label>
             <input
@@ -349,7 +349,7 @@ export function RequestPricingForm() {
               accept=".pdf,.dwg,.dxf,.jpg,.png"
               className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
-            <p className="mt-1 text-xs text-neutral-500">
+            <p className="mt-1 text-xs text-[var(--text-muted)]">
               Accepted formats: PDF, DWG, DXF, Images (Max 5MB)
             </p>
           </div>
@@ -361,7 +361,7 @@ export function RequestPricingForm() {
         <h3 className="font-heading text-lg font-bold text-[var(--text)] mb-4 tracking-tight">Contact Information</h3>
         <Stack spacing="md">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-[var(--text)] mb-2">
               Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -379,7 +379,7 @@ export function RequestPricingForm() {
           </div>
 
           <div>
-            <label htmlFor="whatsapp" className="block text-sm font-medium text-neutral-700 mb-2">
+            <label htmlFor="whatsapp" className="block text-sm font-medium text-[var(--text)] mb-2">
               WhatsApp (Optional)
             </label>
             <input
@@ -413,7 +413,7 @@ export function RequestPricingForm() {
         {isSubmitting ? 'Submitting...' : 'Request Pricing'}
       </Button>
 
-      <p className="text-xs text-neutral-500 text-center">
+      <p className="text-xs text-[var(--text-muted)] text-center">
         By submitting this form, you agree to our privacy policy. We will respond within 1–2 business days.
       </p>
     </form>

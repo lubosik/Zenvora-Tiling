@@ -21,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/locations/doha',
     '/locations/london',
     '/locations/nairobi',
-    '/resources',
     '/request-pricing',
   ]
 
